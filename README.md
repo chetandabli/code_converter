@@ -11,7 +11,25 @@ Code Converter is a web application that allows users to convert code snippets f
 
 ## Installation
 
-1. Clone the repository:
+### 1. Clone the repository:
+    - git clone https://github.com/chetandabli/code_converter.git
 
-```bash
-git clone https://github.com/chetandabli/code_converter.git
+### 2. Install the dependencies:
+      - npm install
+
+### Set up the OpenAI API key:
+    - Rename the .env.example file to .env.
+    - Replace YOUR_OPENAI_API_KEY with your actual OpenAI API key in the .env file.
+
+## Usage
+### Start the server:
+    - node index.js
+
+1. Access the application by opening http://localhost:3000 in your web browser.
+2. Enter the code snippet in the "Code" box.
+3. Select the target programming language from the dropdown menu.
+4. Click the "Convert" button.
+5. The converted code will be displayed in the "Generated Code" box.
+
+## Contributing
+Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
