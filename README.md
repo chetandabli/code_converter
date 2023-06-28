@@ -23,7 +23,7 @@ Code Converter is a web application that allows users to convert code snippets f
 
 ## Usage
 ### Start the server:
-    - node index.js
+    - node server.js
 
 1. Access the application by opening http://localhost:3000 in your web browser.
 2. Enter the code snippet in the "Code" box.
