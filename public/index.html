@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Code Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+    }
+
+    textarea, input {
+      display: block;
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+    }
+
+    #generatedCode {
+      white-space: pre-wrap;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+  <h1>Code Converter</h1>
+  <label>
+    Code:
+    <textarea id="code" rows="10"></textarea>
+  </label>
+  <label>
+    Language:
+    <input type="text" id="language">
+  </label>
+  <button onclick="convertCode()">Convert</button>
+  <h2>Generated Code:</h2>
+  <pre id="generatedCode"></pre>
+
+  <script>
+    function convertCode() {
+      var code = document.getElementById('code').value;
+      var language = document.getElementById('language').value;
+      var generatedCode = document.getElementById('generatedCode');
+
+      fetch('/convert', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ code: code, language: language })
+      })
+      .then(response => response.json())
+      .then(data => {
+        generatedCode.innerHTML = data.response;
+      })
+      .catch(error => {
+        generatedCode.textContent = 'An error occurred while converting the code.';
+        console.error('Error:', error);
+      });
+    }
+  </script>
+</body>
+</html>
