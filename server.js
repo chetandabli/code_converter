@@ -48,7 +48,7 @@ app.post('/convert', async (req, res) => {
   try {
     const {code, language } = req.body;
     
-    let response = await generateCompletion(`Convert the following code:-  ${language} to:\n${code} code. \n if the code is incorrect or not complate please make gusses and complate it.`);
+    let response = await generateCompletion(`Convert the following code:-  ${code} to:\n${language} code. \n if the code is incorrect or not complate please make gusses and complate it.`);
     res.json({ response });
   } catch (error) {
     console.error('Error:', error);
